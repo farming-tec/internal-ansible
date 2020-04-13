@@ -1,0 +1,27 @@
+---
+# ansible-playbook selfserver.yml -i development -v
+- name: Ansible upload local to cloud
+  hosts: selfserver
+  tasks:
+    - name: include secrets files
+      include_vars:
+        dir: secrets
+        extensions: ['yml', 'yaml']
+      no_log: true
+    - name: login to azurecopy
+      become: true
+      shell: 'AZCOPY_SPA_CLIENT_SECRET="{{ az_secret }}" azcopy login --service-principal --application-id="{{ az_username }}" --tenant-id="{{ az_tenant }}"'
+      no_log: true
+    - name: upload files to storage
+      become: true
+      shell: 'azcopy sync "{{ upload_folder }}" "https://{{ az_storage_name }}.blob.core.windows.net/{{ az_storage_container }}/" --delete-destination="true"'
+      no_log: true
+    # - name: upload files to storage
+    #   azure_rm_storageblob:
+    #     resource_group: Demo
+    #     storage_account_name: jpstoragedemo123
+    #     container: test_container
+    #     client_id: '{{ az_username }}'
+    #     secret: '{{ az_secret }}'
+    #     tenant: '{{ az_tenant }}'
+        
