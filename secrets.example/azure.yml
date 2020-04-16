@@ -1,3 +1,4 @@
+# ansible_bionic64/secrets/azure.yml
 ---
 az_username: ''
 az_secret: ''
