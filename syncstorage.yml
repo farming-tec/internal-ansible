@@ -1,5 +1,5 @@
 ---
-# ansible-playbook selfserver.yml -i development -v
+# ansible-playbook syncstorage.yml -i development -v
 - name: Ansible upload local to cloud
   hosts: selfserver
   tasks:
