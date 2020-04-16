@@ -1,0 +1,23 @@
+---
+# ansible-playbook rgroupcreate.yml -i hosts -v
+- name: Ansible upload local to cloud
+  hosts: selfserver
+  tasks:
+    - name: create groups
+      shell: 'az group create -l southcentralus --subscription {{ az_subscription }} -n ResourceGroup{{ item }}'
+      with_items:
+        - A01702962
+        - A01703026
+        - A01702131
+        - A01208984
+        - A01365618
+        - A01207531
+        - A01702815
+        - A01209075
+        - A01700062
+        - A01154844
+        - A01209115
+        - A01703291
+        - A01209133
+        - A01703658
+        - A01208920
