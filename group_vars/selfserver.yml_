@@ -1,3 +1,5 @@
+# No importa
+# Archivo de ejemplo, editar en su lugar 'selfserver.yml'
 upload_folder: /var/www/html
 az_storage_name: jpstoragedemo123
 az_storage_container: testcontainer
