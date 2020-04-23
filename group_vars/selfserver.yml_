@@ -1,6 +1,6 @@
 # No importa
 # Archivo de ejemplo, editar en su lugar 'selfserver.yml'
-upload_folder: /var/www/html
-az_storage_name: jpstoragedemo123
-az_storage_container: testcontainer
+upload_folder: /var/www/html/frontend/public
+az_storage_name: empty
+az_storage_container: \$web
 az_subscription: 
